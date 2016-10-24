@@ -6,7 +6,7 @@ class UploadController <  ActionController::Base
     params.permit(:picture)
 
     if !params.key?(:picture) || params[:picture].blank?
-      redirect_to upload_index_url, notice: "aaaaaaaa"
+      redirect_to upload_index_url, notice: "Empty file"
     else
 
       uploaded_io = params[:picture]
@@ -19,8 +19,7 @@ class UploadController <  ActionController::Base
       if !bucket.object(name).exists?
         obj = bucket.object(name)
         obj.upload_file(uploaded_io.tempfile)
-        sd = obj.read
-        render plain: sd.inspect
+        redirect_to upload_index_url, notice: "File uploaded S3"
       end
 
       # File.open(Rails.root.join('uploads', uploaded_io.original_filename), 'wb') do |file|
