@@ -1,0 +1,22 @@
+<p>Analytical report from #{start_date} to #{start_date}"</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>nikname</th>
+      <th>email</th>
+      <th>number posts for the period</th>
+      <th>number comments for the period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+        <tr>
+          <td><%= item.nickname %></td>
+          <td><%= item.email %></td>
+          <td><%= item.qty_posts %></td>
+          <td><%= item.qty_comments %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
