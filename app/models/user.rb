@@ -4,6 +4,5 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
 
-  validates :nickname, uniqueness: true
-  validates :email, uniqueness: true
+  validates :nickname, :email, uniqueness: true
 end

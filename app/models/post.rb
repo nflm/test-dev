@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
   before_validation :set_published_at
 
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :title, :body, presence: true
   validates_datetime :published_at
 
   belongs_to :user
